@@ -17,9 +17,21 @@ Photogur::Application.routes.draw do
 #   get 'pictures/2' => 'pictures#picture2'
 
 # end
-  resources :pictures
+  get 'pictures' => 'pictures#index'
   
-  root :to => "pictures#index"
+  get 'pictures/sort_by_date' => 'pictures#sort_by_date', as: "pictures_sort_by_date"
+
+  get 'pictures/:id' => 'pictures#show'
+  post 'pictures' => 'pictures#create'
+  get 'pictures/new' => 'pictures#new'
+  get  'pictures/:id/edit' => 'pictures#edit'
+  put 'pictures/:id' => 'pictures#update'
+  delete 'pictures/:id' => 'pictures#destroy'
+
+  
+
+  root :to => "pictures#index"       
+
 
 
   # get 'pictures' => 'pictures#index'

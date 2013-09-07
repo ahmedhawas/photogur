@@ -1,7 +1,6 @@
-<h1>Pictures (<%= @pictures.length %>)</h1>
-<%= link_to "New Picture", "/pictures/new" %>
+<h1>Pictures Ordered by Date of Upload (<%= @pictures.length %>)</h1>
 
-<%= link_to "Most Recent", "/pictures/sort_by_date"%>
+<%= link_to "New Picture", "/pictures/new" %>
 
 
 <% @pictures.each do |picture| %>

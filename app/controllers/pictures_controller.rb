@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+	
 	def index
 		@pictures = Picture.all
 	end
@@ -50,6 +51,15 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to pictures_url
+  end
+
+  def sort_by_date
+  	@pictures = Picture.all
+  	@pictures = Picture.order(:title)
+  end
+
+  def sort_by_title
+  	@pictures = Picture.order(:title)
   end
 
 end
