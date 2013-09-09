@@ -22,7 +22,11 @@ Photogur::Application.routes.draw do
  get 'pictures/sort_by_date' => 'pictures#sort_by_date', as: "pictures_sort_by_date"
  get 'pictures/sort_by_title' => 'pictures#sort_by_title', as: "pictures_sort_by_title"
 
-  resources:pictures
+  resources:pictures do 
+    member do 
+      get 'like'
+    end
+  end
   # get 'pictures' => 'pictures#index'
   
  

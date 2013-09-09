@@ -1,5 +1,7 @@
 <h1>Photogur </h1>
 <h2>Number of Pictures: <%= @pictures.length %></h2>
+
+<h1>You are signed in as, <%= @current_user.name %> </h1>
 <%= link_to "New Picture", "/pictures/new" %>
 
 <%= link_to "Most Recent", "/pictures/sort_by_date"%>

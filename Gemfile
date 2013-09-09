@@ -24,6 +24,10 @@ gem 'jquery-rails'
 
 gem 'strong_parameters'
 
+
+# Added flaggable for adding a like button
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,11 +1,13 @@
 class PicturesController < ApplicationController
 	
 	def index
+    @current_user = User.first
 		@pictures = Picture.all
 	end
 
 
   def show
+    @current_user = User.first
     @picture = Picture.find(params[:id])
   end
 
@@ -60,6 +62,13 @@ class PicturesController < ApplicationController
 
   def sort_by_title
   	@pictures = Picture.order(:title)
+  end
+
+  def like
+    @current_user = User.first
+    @picture = Picture.find(params[:id])
+    @current_user.flag(@picture, :like)
+    redirect_to pictures_path, :notice => "you now like this article"
   end
 
 end
