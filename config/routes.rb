@@ -17,16 +17,26 @@ Photogur::Application.routes.draw do
 #   get 'pictures/2' => 'pictures#picture2'
 
 # end
-  get 'pictures' => 'pictures#index'
-  
-  get 'pictures/sort_by_date' => 'pictures#sort_by_date', as: "pictures_sort_by_date"
 
-  get 'pictures/:id' => 'pictures#show'
-  post 'pictures' => 'pictures#create'
-  get 'pictures/new' => 'pictures#new'
-  get  'pictures/:id/edit' => 'pictures#edit'
-  put 'pictures/:id' => 'pictures#update'
-  delete 'pictures/:id' => 'pictures#destroy'
+# ??????????This get method needs to be put before the show so that it does not use the show action??????
+ get 'pictures/sort_by_date' => 'pictures#sort_by_date', as: "pictures_sort_by_date"
+ get 'pictures/sort_by_title' => 'pictures#sort_by_title', as: "pictures_sort_by_title"
+
+  resources:pictures
+  # get 'pictures' => 'pictures#index'
+  
+ 
+  
+  # post 'pictures' => 'pictures#create'
+  # get 'pictures/new' => 'pictures#new'
+  # get  'pictures/:id/edit' => 'pictures#edit'
+  # put 'pictures/:id' => 'pictures#update'
+
+  # get 'pictures/:id' => 'pictures#show'
+ 
+  
+  
+  # delete 'pictures/:id' => 'pictures#destroy'
 
   
 
@@ -99,5 +109,5 @@ Photogur::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  #match ':controller(/:action(/:id))(.:format)'
 end

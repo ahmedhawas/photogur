@@ -55,7 +55,7 @@ class PicturesController < ApplicationController
 
   def sort_by_date
   	@pictures = Picture.all
-  	@pictures = Picture.order(:title)
+  	@pictures = Picture.order(:created_at)
   end
 
   def sort_by_title
