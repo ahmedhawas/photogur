@@ -67,8 +67,17 @@ class PicturesController < ApplicationController
   def like
     @current_user = User.first
     @picture = Picture.find(params[:id])
-    @current_user.flag(@picture, :like)
-    redirect_to pictures_path, :notice => "you now like this article"
+
+    if @current_user.flagged?(@picture, :like)
+      #link_to "Unlike", like_picture_path(@picture)
+       @current_user.unflag(@picture, :like)
+       msg = "You now dont like this article"
+    else
+      #link_to "Like", like_picture_path(@picture) 
+       @current_user.flag(@picture, :like)
+       msg = "You now like this article"
+    end
+    redirect_to "/pictures/#{@picture.id}", :notice => msg
   end
 
 end
